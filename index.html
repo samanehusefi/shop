@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!--header-->
+<header class="w-full">
+    <div class="top-nav">
+        <img class="block lg:hidden" src="/src/assets/header/topnav.gif" alt="header-top-banner">
+        <img class="hidden lg:block" src="/src/assets/header/topnav.webp" alt="header-top-banner">
+    </div>
+    <div class="bg-white shadow flex items-center justify-between ">
+        <div class="hidden lg:block"><img src="src/assets/logo/full-horizontal.svg" height="88" width="88"/></div>
+        <div class="navbar bg-base-100 w-full">
+            <!-- Mobile -->
+            <div class="navbar-start lg:hidden menu-mobile">
+
+                <!-- Hamburger -->
+                <button id="mobileMenuBtn" class="btn btn-ghost">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+
+                <!-- Overlay -->
+                <div id="mobileMenuOverlay"
+                     class="fixed inset-0 bg-black/40 opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+                </div>
+
+                <!-- Drawer -->
+                <aside id="mobileMenuDrawer"
+                       class="fixed top-0 right-0 h-screen w-80 bg-base-100 shadow-xl overflow-y-auto overflow-x-hidden
+                  translate-x-full transition-transform duration-300 ease-in-out z-50">
+
+                    <!-- Logo -->
+                    <div class="p-4 border-b flex justify-between items-center">
+                        <img src="src/assets/logo/full-horizontal.svg" class="h-10 w-32" />
+                        <!-- دکمه بستن -->
+                        <button id="mobileMenuCloseBtn" class="text-gray-700 hover:text-red-600 text-2xl font-bold">
+                            &times;
+                        </button>
+                    </div>
+
+                    <!-- Menu -->
+                    <ul class="menu menu-sm p-2 w-full overflow-y-auto">
+                        <!-- JS injects here -->
+                    </ul>
+
+                </aside>
+            </div>
+
+
+            <!-- Desktop -->
+         <div class="navbar-center hidden lg:flex flex-wrap menu-desktop">
+             <ul class="menu menu-horizontal menu-sm p-2 flex-1 overflow-visible">
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</header>
+<main class="flex-1 min-h-full">
+
+</main>
+<footer class="bg-gray-200 h-64"></footer>
+
+<script type="module" src="/src/ts/main.ts"></script>
+</body>
+</html>

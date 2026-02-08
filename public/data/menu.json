@@ -1,0 +1,168 @@
+{
+  "menu": [
+    { "id": 1, "title": "صفحه اصلی", "url": "/", "type": "normalMenu", "submenu": [], "mega": false, "priority": 1 },
+    {
+      "id": 2,
+      "title": "محصولات",
+      "url": "/products",
+      "type": "subMenu",
+      "mega": true,
+      "priority": 2,
+      "submenu": [
+        {
+          "id": 21,
+          "title": "لوازم دیجیتال",
+          "url": "/products/digital",
+          "type": "subMenu",
+          "mega": true,
+          "priority": 1,
+          "submenu": [
+            { "id": 211, "title": "موبایل", "url": "/products/digital/mobile", "type": "subMenu", "submenu": [], "mega": false, "priority": 1 },
+            { "id": 212, "title": "لپ‌تاپ", "url": "/products/digital/laptop", "type": "subMenu", "submenu": [], "mega": false, "priority": 2 },
+            { "id": 213, "title": "گوشی هوشمند", "url": "/products/digital/smartphone", "type": "subMenu", "submenu": [], "mega": false, "priority": 3 },
+            { "id": 214, "title": "تبلت", "url": "/products/digital/tablet", "type": "subMenu", "submenu": [], "mega": false, "priority": 4 },
+            { "id": 215, "title": "لوازم جانبی", "url": "/products/digital/accessories", "type": "subMenu", "submenu": [], "mega": false, "priority": 5 }
+          ]
+        },
+        {
+          "id": 22,
+          "title": "کتاب و مجله",
+          "url": "/products/books",
+          "type": "subMenu",
+          "mega": true,
+          "priority": 2,
+          "submenu": [
+            { "id": 221, "title": "برنامه نویسی", "url": "/products/books/programming", "type": "subMenu", "submenu": [], "mega": false, "priority": 1 },
+            { "id": 222, "title": "داستان", "url": "/products/books/novel", "type": "subMenu", "submenu": [], "mega": false, "priority": 2 },
+            { "id": 223, "title": "تربیت کودک", "url": "/products/books/kids", "type": "subMenu", "submenu": [], "mega": false, "priority": 3 },
+            { "id": 224, "title": "علمی", "url": "/products/books/science", "type": "subMenu", "submenu": [], "mega": false, "priority": 4 },
+            { "id": 225, "title": "هنر و طراحی", "url": "/products/books/art", "type": "subMenu", "submenu": [], "mega": false, "priority": 5 }
+          ]
+        },
+        {
+          "id": 23,
+          "title": "خانه و آشپزخانه",
+          "url": "/products/home",
+          "type": "subMenu",
+          "mega": true,
+          "priority": 3,
+          "submenu": [
+            { "id": 231, "title": "لوازم خانگی", "url": "/products/home/appliances", "type": "subMenu", "submenu": [], "mega": false, "priority": 1 },
+            { "id": 232, "title": "دکوراسیون", "url": "/products/home/decor", "type": "subMenu", "submenu": [], "mega": false, "priority": 2 },
+            { "id": 233, "title": "ظروف", "url": "/products/home/dishes", "type": "subMenu", "submenu": [], "mega": false, "priority": 3 },
+            { "id": 234, "title": "لوازم آشپزخانه", "url": "/products/home/kitchen", "type": "subMenu", "submenu": [], "mega": false, "priority": 4 },
+            { "id": 235, "title": "نورپردازی", "url": "/products/home/lighting", "type": "subMenu", "submenu": [], "mega": false, "priority": 5 }
+          ]
+        },
+        {
+          "id": 24,
+          "title": "مد و پوشاک",
+          "url": "/products/fashion",
+          "type": "subMenu",
+          "mega": true,
+          "priority": 4,
+          "submenu": [
+            { "id": 241, "title": "لباس مردانه", "url": "/products/fashion/men", "type": "subMenu", "submenu": [], "mega": false, "priority": 1 },
+            { "id": 242, "title": "لباس زنانه", "url": "/products/fashion/women", "type": "subMenu", "submenu": [], "mega": false, "priority": 2 },
+            { "id": 243, "title": "کفش", "url": "/products/fashion/shoes", "type": "subMenu", "submenu": [], "mega": false, "priority": 3 },
+            { "id": 244, "title": "اکسسوری", "url": "/products/fashion/accessories", "type": "subMenu", "submenu": [], "mega": false, "priority": 4 },
+            { "id": 245, "title": "کیف و کوله", "url": "/products/fashion/bags", "type": "subMenu", "submenu": [], "mega": false, "priority": 5 }
+          ]
+        },
+        {
+          "id": 25,
+          "title": "ورزش و سفر",
+          "url": "/products/sports",
+          "type": "subMenu",
+          "mega": true,
+          "priority": 5,
+          "submenu": [
+            { "id": 251, "title": "لوازم ورزشی", "url": "/products/sports/equipment", "type": "subMenu", "submenu": [], "mega": false, "priority": 1 },
+            { "id": 252, "title": "لباس ورزشی", "url": "/products/sports/clothes", "type": "subMenu", "submenu": [], "mega": false, "priority": 2 },
+            { "id": 253, "title": "کفش ورزشی", "url": "/products/sports/shoes", "type": "subMenu", "submenu": [], "mega": false, "priority": 3 },
+            { "id": 254, "title": "کمپینگ", "url": "/products/sports/camping", "type": "subMenu", "submenu": [], "mega": false, "priority": 4 },
+            { "id": 255, "title": "دوچرخه", "url": "/products/sports/bike", "type": "subMenu", "submenu": [], "mega": false, "priority": 5 }
+          ]
+        },
+        {
+          "id": 26,
+          "title": "آرایشی و بهداشتی",
+          "url": "/products/beauty",
+          "type": "subMenu",
+          "mega": true,
+          "priority": 6,
+          "submenu": [
+            { "id": 261, "title": "مراقبت پوست", "url": "/products/beauty/skin", "type": "subMenu", "submenu": [], "mega": false, "priority": 1 },
+            { "id": 262, "title": "مراقبت مو", "url": "/products/beauty/hair", "type": "subMenu", "submenu": [], "mega": false, "priority": 2 },
+            { "id": 263, "title": "آرایش صورت", "url": "/products/beauty/makeup", "type": "subMenu", "submenu": [], "mega": false, "priority": 3 },
+            { "id": 264, "title": "عطر و ادکلن", "url": "/products/beauty/fragrance", "type": "subMenu", "submenu": [], "mega": false, "priority": 4 },
+            { "id": 265, "title": "بهداشت فردی", "url": "/products/beauty/personal", "type": "subMenu", "submenu": [], "mega": false, "priority": 5 }
+          ]
+        },
+        {
+          "id": 27,
+          "title": "خوراکی و نوشیدنی",
+          "url": "/products/food",
+          "type": "subMenu",
+          "mega": true,
+          "priority": 7,
+          "submenu": [
+            { "id": 271, "title": "میوه و سبزیجات", "url": "/products/food/fruit", "type": "subMenu", "submenu": [], "mega": false, "priority": 1 },
+            { "id": 272, "title": "گوشت و مرغ", "url": "/products/food/meat", "type": "subMenu", "submenu": [], "mega": false, "priority": 2 },
+            { "id": 273, "title": "نوشیدنی", "url": "/products/food/drink", "type": "subMenu", "submenu": [], "mega": false, "priority": 3 },
+            { "id": 274, "title": "شیرینی و دسر", "url": "/products/food/sweets", "type": "subMenu", "submenu": [], "mega": false, "priority": 4 },
+            { "id": 275, "title": "خشکبار", "url": "/products/food/nuts", "type": "subMenu", "submenu": [], "mega": false, "priority": 5 }
+          ]
+        },
+        {
+          "id": 28,
+          "title": "خودرو و ابزار",
+          "url": "/products/auto",
+          "type": "subMenu",
+          "mega": true,
+          "priority": 8,
+          "submenu": [
+            { "id": 281, "title": "لوازم یدکی", "url": "/products/auto/parts", "type": "subMenu", "submenu": [], "mega": false, "priority": 1 },
+            { "id": 282, "title": "ابزار تعمیر", "url": "/products/auto/tools", "type": "subMenu", "submenu": [], "mega": false, "priority": 2 },
+            { "id": 283, "title": "لوازم جانبی خودرو", "url": "/products/auto/accessories", "type": "subMenu", "submenu": [], "mega": false, "priority": 3 },
+            { "id": 284, "title": "روکش صندلی", "url": "/products/auto/covers", "type": "subMenu", "submenu": [], "mega": false, "priority": 4 },
+            { "id": 285, "title": "روغن و روانکار", "url": "/products/auto/oil", "type": "subMenu", "submenu": [], "mega": false, "priority": 5 }
+          ]
+        },
+        {
+          "id": 29,
+          "title": "اسباب بازی و کودک",
+          "url": "/products/kids",
+          "type": "subMenu",
+          "mega": true,
+          "priority": 9,
+          "submenu": [
+            { "id": 291, "title": "اسباب بازی", "url": "/products/kids/toys", "type": "subMenu", "submenu": [], "mega": false, "priority": 1 },
+            { "id": 292, "title": "لباس کودک", "url": "/products/kids/clothes", "type": "subMenu", "submenu": [], "mega": false, "priority": 2 },
+            { "id": 293, "title": "لوازم تحصیل", "url": "/products/kids/school", "type": "subMenu", "submenu": [], "mega": false, "priority": 3 },
+            { "id": 294, "title": "اسباب بازی آموزشی", "url": "/products/kids/educational", "type": "subMenu", "submenu": [], "mega": false, "priority": 4 },
+            { "id": 295, "title": "کفش کودک", "url": "/products/kids/shoes", "type": "subMenu", "submenu": [], "mega": false, "priority": 5 }
+          ]
+        },
+        {
+          "id": 30,
+          "title": "لوازم تحریر",
+          "url": "/products/stationery",
+          "type": "subMenu",
+          "mega": true,
+          "priority": 10,
+          "submenu": [
+            { "id": 301, "title": "دفتر و کتابچه", "url": "/products/stationery/notebook", "type": "subMenu", "submenu": [], "mega": false, "priority": 1 },
+            { "id": 302, "title": "خودکار و مداد", "url": "/products/stationery/pens", "type": "subMenu", "submenu": [], "mega": false, "priority": 2 },
+            { "id": 303, "title": "کاغذ و برگه", "url": "/products/stationery/paper", "type": "subMenu", "submenu": [], "mega": false, "priority": 3 },
+            { "id": 304, "title": "لوازم اداری", "url": "/products/stationery/office", "type": "subMenu", "submenu": [], "mega": false, "priority": 4 },
+            { "id": 305, "title": "کیف و جامدادی", "url": "/products/stationery/bags", "type": "subMenu", "submenu": [], "mega": false, "priority": 5 }
+          ]
+        }
+      ]
+    },
+    { "id": 5, "title": "وبلاگ", "url": "/blog", "type": "normalMenu", "submenu": [], "mega": false, "priority": 3 },
+    { "id": 3, "title": "درباره ما", "url": "/about", "type": "normalMenu", "submenu": [], "mega": false, "priority": 4 },
+    { "id": 4, "title": "تماس با ما", "url": "/contact", "type": "normalMenu", "submenu": [], "mega": false, "priority": 5 }
+  ]
+}
