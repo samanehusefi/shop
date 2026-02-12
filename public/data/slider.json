@@ -1,0 +1,67 @@
+[
+  {
+    "id": 10023456,
+    "title": "هدفون بی‌سیم XYZ",
+    "description": "هدفون بی‌سیم XYZ برند ABC با کیفیت صدای بالا و تخفیف ویژه. قیمت فروش 1,250,000 تومان، برند ABC، مناسب موسیقی و تماس‌های تلفنی.",
+    "images": {
+      "desktop": "https://dkstatics-public.digikala.com/digikala-products/10023456_desktop.jpg",
+      "mobile": "https://dkstatics-public.digikala.com/digikala-products/10023456_mobile.jpg"
+    },
+    "alt": "هدفون بی‌سیم XYZ برند ABC با کیفیت صدای بالا",
+    "Url": "https://www.digikala.com/product/dkp-10023456/",
+    "priority": 1,
+    "active": true
+  },
+  {
+    "id": 10098765,
+    "title": "گوشی هوشمند مدل ABC Pro",
+    "description": "گوشی هوشمند ABC Pro با صفحه‌نمایش 6.7 اینچ و دوربین 108 مگاپیکسل",
+    "images": {
+      "desktop": "https://dkstatics-public.digikala.com/digikala-products/10098765_desktop.jpg",
+      "mobile": "https://dkstatics-public.digikala.com/digikala-products/10098765_mobile.jpg"
+    },
+    "alt": "گوشی هوشمند ABC Pro با نمایشگر 6.7 اینچ و دوربین 108 مگاپیکسل",
+    "Url": "https://www.digikala.com/product/dkp-10098765/",
+    "priority": 2,
+    "active": true
+  },
+  {
+    "id": 10111223,
+    "title": "ساعت هوشمند Z Series",
+    "description": "ساعت هوشمند Z Series با امکانات سلامتی و ورزشی و نمایشگر AMOLED",
+    "images": {
+      "desktop": "https://dkstatics-public.digikala.com/digikala-products/10111223_desktop.jpg",
+      "mobile": "https://dkstatics-public.digikala.com/digikala-products/10111223_mobile.jpg"
+    },
+    "alt": "ساعت هوشمند Z Series با نمایشگر AMOLED و امکانات ورزشی",
+    "Url": "https://www.digikala.com/product/dkp-10111223/",
+    "priority": 3,
+    "active": true
+  },
+  {
+    "id": 10133445,
+    "title": "لپ‌تاپ سبک UltraBook 14",
+    "description": "لپ‌تاپ UltraBook 14 با پردازنده نسل جدید و SSD 512 گیگ",
+    "images": {
+      "desktop": "https://dkstatics-public.digikala.com/digikala-products/10133445_desktop.jpg",
+      "mobile": "https://dkstatics-public.digikala.com/digikala-products/10133445_mobile.jpg"
+    },
+    "alt": "لپ‌تاپ UltraBook 14 سبک با حافظه SSD 512 گیگ",
+    "Url": "https://www.digikala.com/product/dkp-10133445/",
+    "priority": 4,
+    "active": true
+  },
+  {
+    "id": 10155667,
+    "title": "کفش ورزشی Running Max",
+    "description": "کفش ورزشی Running Max مناسب دویدن و استفاده روزمره",
+    "images": {
+      "desktop": "https://dkstatics-public.digikala.com/digikala-products/10155667_desktop.jpg",
+      "mobile": "https://dkstatics-public.digikala.com/digikala-products/10155667_mobile.jpg"
+    },
+    "alt": "کفش ورزشی Running Max با طراحی مدرن و کفی راحت",
+    "Url": "https://www.digikala.com/product/dkp-10155667/",
+    "priority": 5,
+    "active": true
+  }
+]

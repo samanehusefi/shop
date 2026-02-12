@@ -8,13 +8,20 @@
     <title>Document</title>
 </head>
 <body>
+<!-- Loading -->
+<div id="mobileLoading" class="fixed inset-0 bg-white/90 backdrop-blur-sm flex flex-col items-center justify-center z-70 hidden transition-opacity duration-700">
+    <img src="src/assets/logo/full-horizontal.svg" class="h-20 w-40 animate-bounce" alt="Logo" />
+    <p class="mt-4 text-gray-600 text-lg">در حال بارگذاری...</p>
+</div>
+
+
 <!--header-->
 <header class="w-full">
-    <div class="top-nav">
+    <div class="top-nav bg-gray-200 z-40 relative">
         <img class="block lg:hidden" src="/src/assets/header/topnav.gif" alt="header-top-banner">
         <img class="hidden lg:block" src="/src/assets/header/topnav.webp" alt="header-top-banner">
     </div>
-    <div class="bg-white shadow flex items-center justify-between ">
+    <div class="navbar bg-white shadow flex items-center justify-between fixed left-0 w-full z-50  !py-0 transition-all duration-500 ease-in-out"  id="navbar">
         <div class="hidden lg:block"><img src="src/assets/logo/full-horizontal.svg" height="88" width="88"/></div>
         <div class="navbar bg-base-100 w-full">
             <!-- Mobile -->
@@ -36,12 +43,11 @@
 
                 <!-- Drawer -->
                 <aside id="mobileMenuDrawer"
-                       class="fixed top-0 right-0 h-screen w-80 bg-base-100 shadow-xl overflow-y-auto overflow-x-hidden
-                  translate-x-full transition-transform duration-300 ease-in-out z-50">
+                       class="mobile-menu translate-x-full">
 
                     <!-- Logo -->
                     <div class="p-4 border-b flex justify-between items-center">
-                        <img src="src/assets/logo/full-horizontal.svg" class="h-10 w-32" />
+                        <img src="src/assets/logo/full-horizontal.svg" class="h-10 w-32"/>
                         <!-- دکمه بستن -->
                         <button id="mobileMenuCloseBtn" class="text-gray-700 hover:text-red-600 text-2xl font-bold">
                             &times;
@@ -49,28 +55,81 @@
                     </div>
 
                     <!-- Menu -->
-                    <ul class="menu menu-sm p-2 w-full overflow-y-auto">
-                        <!-- JS injects here -->
-                    </ul>
 
+                    <div class="overflow-y-auto h-[calc(100%-20%)] ">
+                        <ul class="menu menu-sm flex flex-col  flex-nowrap w-full p-2">
+                            <!-- JS injects menu items here -->
+                        </ul>
+                    </div>
                 </aside>
             </div>
 
 
             <!-- Desktop -->
-         <div class="navbar-center hidden lg:flex flex-wrap menu-desktop">
-             <ul class="menu menu-horizontal menu-sm p-2 flex-1 overflow-visible">
+            <div class="navbar-center hidden lg:flex flex-wrap menu-desktop">
+                <ul class="menu menu-horizontal menu-sm p-2 flex-1 overflow-visible">
                 </ul>
             </div>
 
         </div>
     </div>
 </header>
-<main class="flex-1 min-h-full">
+<main class="flex-1 min-h-full h-[1000px]">
+    <!--Slider-->
+    <div class=" w-full h-[500px]">
+        <swiper-container class="mySwiper" pagination="true" pagination-clickable="true"  space-between="30"
+                          centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false"  autoplay="true" loop="true">
+            <swiper-slide class="relative w-full h-full !mr-0">
+                <div class="h-full w-full">
+                    <img class="w-full h-full object-cover" src="src/assets/banner/banner-1-des.png"
+                         alt="کفش ورزشی Running Max با طراحی مدرن و کفی راحت">
+                </div>
+<!--                <div class="absolute right-4 top-1/4 w-1/3 rounded-2xl p-3 text-red bg-gray-700 text-white  justify-center">-->
+<!--                    <div class="title" data-swiper-parallax="-300">Slide 1</div>-->
+<!--                    <div class="subtitle" data-swiper-parallax="-200">Subtitle1</div>-->
+<!--                    <div class="text" data-swiper-parallax="-100">-->
+<!--                        <p>-->
+<!--                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam-->
+<!--                            dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla-->
+<!--                            laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.-->
+<!--                            Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.-->
+<!--                            Aliquam hendrerit lorem at elit facilisis rutrum. Ut at-->
+<!--                            ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,-->
+<!--                            tincidunt ut libero. Aenean feugiat non eros quis feugiat.-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </swiper-slide>
+            <swiper-slide class="relative w-full h-full !mr-0">
+                <div class="h-full w-full">
+                    <img class="w-full h-full object-cover" src="src/assets/banner/banner-2-des.png"
+                         alt="کفش ورزشی Running Max با طراحی مدرن و کفی راحت">
+                </div>
+<!--                <div class="absolute right-4 top-1/4 w-1/3 rounded-2xl p-3 text-red bg-gray-700 text-white  justify-center">-->
+<!--                    <div class="title" data-swiper-parallax="-300">Slide 2</div>-->
+<!--                    <div class="subtitle" data-swiper-parallax="-200">Subtitle2</div>-->
+<!--                    <div class="text" data-swiper-parallax="-100">-->
+<!--                        <p>-->
+<!--                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam-->
+<!--                            dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla-->
+<!--                            laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.-->
+<!--                            Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.-->
+<!--                            Aliquam hendrerit lorem at elit facilisis rutrum. Ut at-->
+<!--                            ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,-->
+<!--                            tincidunt ut libero. Aenean feugiat non eros quis feugiat.-->
+<!--                        </p>-->
+<!--                    </div>
+                </div>-->
+            </swiper-slide>
+        </swiper-container>
+    </div>
+    <!--Slider-->
 
+    <div class="h-[800px] w-full bg-gray-100" ></div>
 </main>
 <footer class="bg-gray-200 h-64"></footer>
 
 <script type="module" src="/src/ts/main.ts"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-element-bundle.min.js"></script>
 </body>
 </html>

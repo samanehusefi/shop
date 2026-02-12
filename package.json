@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "preview": "vite preview",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build:pages": "vite build --mode production"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.18",
@@ -19,6 +20,7 @@
     "vite": "^7.2.4"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.18"
+    "@tailwindcss/vite": "^4.1.18",
+    "swiper": "^12.1.0"
   }
 }
