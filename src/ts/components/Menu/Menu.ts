@@ -49,7 +49,7 @@ const createDesktopMenuHTML = (items: DataMenu[]): string =>
                     <a class="cursor-pointer px-4 py-2 hover:text-red-600 hover:bg-transparent">
                         ${item.title} ${chevron}
                     </a>
-                    <div class="hidden lg:absolute lg:top-full lg:right-0 lg:w-[80vw] lg:max-h-[80vh] lg:overflow-auto lg:group-hover:block bg-base-100 shadow-lg p-4 z-50">
+                    <div class="hidden lg:absolute lg:top-full lg:right-0 lg:w-[80vw] lg:max-h-[70vh] lg:overflow-auto lg:group-hover:block bg-base-100 shadow-lg p-4 z-50">
                         <ul class="flex flex-wrap gap-3 list-none p-0 m-0 !border-0 hover:border-0">
                             ${item.submenu
                     .map(
@@ -160,5 +160,47 @@ export const loadMobileMenu = async (): Promise<void> => {
         console.error(error);
     }
 };
+
+//----------------  navbar ----------------
+const navbar = document.querySelector<HTMLElement>('#navbar');
+const topBanner = document.querySelector<HTMLElement>('#topBanner');
+const navbarTop = document.querySelector<HTMLElement>('#navbarTop');
+const spacer = document.querySelector<HTMLElement>('#navbarSpacer');
+
+if (navbar) {
+
+    const SCROLL_LIMIT = 80;
+
+    const updateNavbar = () => {
+
+        const navbarHeight = navbar.offsetHeight+120;
+
+        if (window.scrollY > SCROLL_LIMIT) {
+           spacer!.style.height = `${navbarHeight}px`;
+            navbar.classList.add('fixed', 'top-0', 'left-0', 'w-full');
+            navbar.classList.add('navbar-scrolled');
+
+            topBanner?.classList.add('section-collapse');
+            navbarTop?.classList.add('section-collapse');
+
+        } else {
+
+            spacer!.style.height = `0px`;
+
+            navbar.classList.remove('fixed', 'top-0', 'left-0', 'w-full');
+            navbar.classList.remove('navbar-scrolled');
+
+            topBanner?.classList.remove('section-collapse');
+            navbarTop?.classList.remove('section-collapse');
+        }
+    };
+
+    updateNavbar();
+
+    window.addEventListener('scroll', updateNavbar, { passive: true });
+    window.addEventListener('resize', updateNavbar);
+}
+
+
 
 export default { loadDesktopMenu, loadMobileMenu };
