@@ -51,6 +51,9 @@ ul, li {
 .header{
     @apply  w-full h-40 flex flex-col justify-center items-center text-2xl;
 }
+.header-icon{
+    @apply w-5 h-5 md:w-7 md:h-7
+}
 .top-nav{
     @apply w-full  block h-[20px] md:h-[30px] lg:h-[50px] bg-[rgba(0,0,0,0.04)] !top-0
 }
@@ -128,12 +131,26 @@ swiper-slide {
     @apply flex justify-center items-center text-center text-[18px] bg-gray-800;
 }
 swiper-slide .title {
-    @apply text-[20px] font-light text-center border-b border-white;
+    @apply text-[14px] md:text-[20px] font-light text-center border-b border-white;
 }
 swiper-slide .text {
-    @apply text-[14px] leading-8 p-[5px] text-justify;
+    @apply text-[12px] md:text-[14px] leading-8 p-[5px] text-justify;
 }
 swiper-slide img {
-    @apply block w-full h-full object-cover;
+    @apply block w-full h-full;
 }
+.mySwiper::part(pagination) {
+    @apply bottom-4 flex justify-center space-x-2;
+}
+
+.mySwiper::part(bullet) {
+    @apply w-3 h-3 bg-gray-300 rounded-full transition-all duration-300;
+}
+
+.mySwiper::part(bullet-active) {
+    @apply bg-white scale-125 w-3 h-3;
+}
+/* #endregion */
+/* #region Search */
+
 /* #endregion */

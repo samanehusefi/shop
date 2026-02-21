@@ -4,8 +4,8 @@
     "title": "هدفون بی‌سیم XYZ",
     "description": "هدفون بی‌سیم XYZ برند ABC با کیفیت صدای بالا و تخفیف ویژه. قیمت فروش 1,250,000 تومان، برند ABC، مناسب موسیقی و تماس‌های تلفنی.",
     "images": {
-      "desktop": "src/assets/banner/banner-2-des.png",
-      "mobile": "src/assets/banner/banner-2-mobile.png"
+      "desktop": "src/assets/banner/headphones-des.jpg",
+      "mobile": "src/assets/banner/headphones-mobile.png"
     },
     "alt": "هدفون بی‌سیم XYZ برند ABC با کیفیت صدای بالا",
     "url": "https://www.digikala.com/product/dkp-10023456/",
@@ -17,8 +17,8 @@
     "title": "گوشی هوشمند مدل ABC Pro",
     "description": "گوشی هوشمند ABC Pro با صفحه‌نمایش 6.7 اینچ و دوربین 108 مگاپیکسل",
     "images": {
-      "desktop": "src/assets/banner/banner-1-des.png",
-      "mobile": "src/assets/banner/banner-1-mobile.png"
+      "desktop": "src/assets/banner/headphones-des.jpg",
+      "mobile": "src/assets/banner/headphones-mobile.png"
     },
     "alt": "گوشی هوشمند ABC Pro با نمایشگر 6.7 اینچ و دوربین 108 مگاپیکسل",
     "url": "https://www.digikala.com/product/dkp-10098765/",
@@ -30,8 +30,8 @@
     "title": "ساعت هوشمند Z Series",
     "description": "ساعت هوشمند Z Series با امکانات سلامتی و ورزشی و نمایشگر AMOLED",
     "images": {
-      "desktop": "src/assets/banner/banner-2-des.png",
-      "mobile": "src/assets/banner/banner-2-mobile.png"
+      "desktop": "src/assets/banner/headphones-des.jpg",
+      "mobile": "src/assets/banner/headphones-mobile.png"
     },
     "alt": "ساعت هوشمند Z Series با نمایشگر AMOLED و امکانات ورزشی",
     "url": "https://www.digikala.com/product/dkp-10111223/",
@@ -43,8 +43,8 @@
     "title": "لپ‌تاپ سبک UltraBook 14",
     "description": "لپ‌تاپ UltraBook 14 با پردازنده نسل جدید و SSD 512 گیگ",
     "images": {
-      "desktop": "src/assets/banner/banner-1-des.png",
-      "mobile": "src/assets/banner/banner-1-mobile.png"
+      "desktop": "src/assets/banner/headphones-des.jpg",
+      "mobile": "src/assets/banner/headphones-mobile.png"
     },
     "alt": "لپ‌تاپ UltraBook 14 سبک با حافظه SSD 512 گیگ",
     "url": "https://www.digikala.com/product/dkp-10133445/",

@@ -25,60 +25,42 @@
         <img class="hidden lg:block" src="/src/assets/header/topnav.webp" alt="header-top-banner">
     </div>
     <div class="bg-white shadow flex flex-wrap left-0 w-full z-40 transition-all duration-500 ease-in-out py-3"
-              id="navbar">
+         id="navbar">
         <div id="navbarTop"
-             class="flex flex-wrap items-center justify-around !w-full px-4 transition-all duration-300 overflow-hidden">
-
-        <div class="hidden lg:block lg:w-48">
+             class="flex flex-wrap items-center justify-around !w-full px-4 transition-all duration-300 ">
+            <div class="hidden lg:block lg:w-48">
                 <img src="src/assets/logo/full-horizontal.svg" class="h-full w-full"/>
             </div>
-            <div class=" lg:flex flex-1 mx-4 relative">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                     class="h-5 w-5 absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
+            <div class="lg:flex flex-1 mx-2 md:mx-4 relative">
+                <svg id="searchIcon" xmlns="http://www.w3.org/2000/svg"
+                     class="h-5 w-5 absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 transition-transform duration-500"
                      fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                           d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z"/>
                 </svg>
-                <input type="text" placeholder="جستجو..." class="w-[90%] md:w-2/3  h-12 text-xs bg-gray-100 rounded pr-8"/>
 
+                <input id="search" placeholder="جستجو..."
+                       class="w-[90%] md:w-2/3 h-8 md:h-12 text-xs bg-gray-100 rounded pr-8 border-none focus:ring-0 outline-none"/>
+                <ul id="results" class="absolute top-full mt-1 w-[90%] md:w-2/3 bg-white border h-32  shadow  max-h-52 overflow-y-auto rounded z-[999999999999] hidden"></ul>
             </div>
             <div>
                 <button class="relative p-2 hover:bg-gray-100 rounded-full">
-                    <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-
-                        <g id="SVGRepo_iconCarrier"> <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </g>
-
-                    </svg>
+                    <img class="header-icon"
+                         src="./src/assets/icon/user.svg" alt="digikala - دیجی کالا"
+                         title="digikala - دیجی کالا">
                 </button>
                 <button class="relative p-2 hover:bg-gray-100 rounded-full">
-                    <svg fill="#000000" width="30px" height="30px" viewBox="0 0 36 36" version="1.1" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-
-                        <g id="SVGRepo_iconCarrier"> <title>notification-line</title> <path class="clr-i-outline clr-i-outline-path-1" d="M32.51,27.83A14.4,14.4,0,0,1,30,24.9a12.63,12.63,0,0,1-1.35-4.81V15.15A10.81,10.81,0,0,0,19.21,4.4V3.11a1.33,1.33,0,1,0-2.67,0V4.42A10.81,10.81,0,0,0,7.21,15.15v4.94A12.63,12.63,0,0,1,5.86,24.9a14.4,14.4,0,0,1-2.47,2.93,1,1,0,0,0-.34.75v1.36a1,1,0,0,0,1,1h27.8a1,1,0,0,0,1-1V28.58A1,1,0,0,0,32.51,27.83ZM5.13,28.94a16.17,16.17,0,0,0,2.44-3,14.24,14.24,0,0,0,1.65-5.85V15.15a8.74,8.74,0,1,1,17.47,0v4.94a14.24,14.24,0,0,0,1.65,5.85,16.17,16.17,0,0,0,2.44,3Z"/>
-
-                            <path class="clr-i-outline clr-i-outline-path-2" d="M18,34.28A2.67,2.67,0,0,0,20.58,32H15.32A2.67,2.67,0,0,0,18,34.28Z"/> <rect x="0" y="0" width="36" height="36" fill-opacity="0"/> </g>
-
-                    </svg>
+                    <img class="header-icon"
+                         src="./src/assets/icon/notification.svg" alt="digikala - دیجی کالا"
+                         title="digikala - دیجی کالا">
                     <!-- Notification badge -->
                     <span class="absolute top-0 right-0 inline-block w-2 h-2 bg-red-500 rounded-full"></span>
                 </button>
                 <button class="relative p-2 hover:bg-gray-100 rounded-full">
-                    <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-
-                        <g id="SVGRepo_iconCarrier"> <path d="M3.5 4.5H5.05848C5.7542 4.5 6.10206 4.5 6.36395 4.68876C6.62584 4.87752 6.73584 5.20753 6.95585 5.86754L7.5 7.5" stroke="#222222" stroke-linecap="round"/> <path d="M17.5 17.5H8.05091C7.90471 17.5 7.83162 17.5 7.77616 17.4938C7.18857 17.428 6.78605 16.8695 6.90945 16.2913C6.92109 16.2367 6.94421 16.1674 6.99044 16.0287V16.0287C7.04177 15.8747 7.06743 15.7977 7.09579 15.7298C7.38607 15.0342 8.04277 14.5608 8.79448 14.5054C8.8679 14.5 8.94906 14.5 9.11137 14.5H14.5" stroke="#222222" stroke-linecap="round" stroke-linejoin="round"/> <path d="M14.1787 14.5H11.1376C9.85836 14.5 9.21875 14.5 8.71781 14.1697C8.21687 13.8394 7.96492 13.2515 7.461 12.0757L7.29218 11.6818C6.48269 9.79294 6.07794 8.84853 6.52255 8.17426C6.96715 7.5 7.99464 7.5 10.0496 7.5H15.3305C17.6295 7.5 18.779 7.5 19.2126 8.24711C19.6462 8.99422 19.0758 9.99229 17.9352 11.9884L17.6517 12.4846C17.0897 13.4679 16.8088 13.9596 16.3432 14.2298C15.8776 14.5 15.3113 14.5 14.1787 14.5Z" stroke="#222222" stroke-linecap="round"/> <circle cx="17" cy="20" r="1" fill="#222222"/> <circle cx="9" cy="20" r="1" fill="#222222"/> </g>
-
-                    </svg>
+                    <img class="header-icon"
+                         src="./src/assets/icon/basket.svg" alt="digikala - دیجی کالا"
+                         title="digikala - دیجی کالا">
                     <!-- Cart count -->
                     <span class="absolute top-0 right-0 inline-block w-4 h-4 bg-red-500 text-white text-xs font-bold rounded-full text-center">3</span>
                 </button>
@@ -90,18 +72,19 @@
             <div class="navbar-start !w-full lg:hidden menu-mobile">
 
                 <!-- Hamburger -->
-    <div class="flex !w-full flex-wrap items-center justify-between px-3 mt-3">
-        <button id="mobileMenuBtn" class="btn btn-ghost">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-                 viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                      stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-        </button>
-        <div class="block lg:hidden w-32">
-            <img src="src/assets/logo/full-horizontal.svg" class="h-full w-full"/>
-        </div>
-    </div>
+                <div class="flex !w-full flex-wrap items-center justify-between px-3 mt-3">
+                    <button id="mobileMenuBtn" class="btn btn-ghost">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+
+                    </button>
+                    <div class="block lg:hidden w-32">
+                        <img src="src/assets/logo/full-horizontal.svg" class="h-full w-full"/>
+                    </div>
+                </div>
                 <!-- Overlay -->
                 <div id="mobileMenuOverlay"
                      class="fixed inset-0 bg-black/40 opacity-0 pointer-events-none transition-opacity duration-300 z-40">
@@ -148,7 +131,7 @@
     <!--Slider-->
     <div class="w-full h-[300px] lg:h-[600px]">
         <swiper-container class="mySwiper" pagination="true" space-between="30"
-                          centered-slides="true" autoplay-delay="2500" autoplay="true" loop="true">
+                          centered-slides="true" autoplay-delay="2500">
         </swiper-container>
     </div>
     <!--Slider-->

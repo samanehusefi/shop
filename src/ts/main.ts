@@ -6,8 +6,8 @@ import { register } from 'swiper/element/bundle';
 import menu from "@/ts/components/Menu/Menu.ts";
 import slider from "@/ts/components/Slider/Slider.ts";
 import { loadAppWithLoading } from "@/ts/components/Loading/Loading.ts";
-register()
+import "@/ts/Search/Search.ts";
+register();
 window.addEventListener("DOMContentLoaded", () => {
     loadAppWithLoading(menu, slider);
 });
-
