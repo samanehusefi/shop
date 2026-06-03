@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+    <!-- Chevron Down -->
+    <symbol id="chevron-up" viewBox="0 0 24 24">
+        <path d="M6 15L12 9L18 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+
+
+
+    <!-- Search -->
+    <symbol id="search" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- User -->
+    <symbol id="user" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2" fill="none"/>
+        <path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="2" fill="none"/>
+    </symbol>
+
+    <!-- Heart / Favorite -->
+    <symbol id="heart" viewBox="0 0 24 24">
+        <path d="M12 21C12 21 5 14 5 9a5 5 0 0110 0c0 5-7 12-7 12z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <!-- Cart -->
+    <symbol id="cart" viewBox="0 0 24 24">
+        <path d="M6 6h15l-1.5 9h-13z" stroke="currentColor" stroke-width="2" fill="none"/>
+        <circle cx="9" cy="21" r="1" fill="currentColor"/>
+        <circle cx="18" cy="21" r="1" fill="currentColor"/>
+    </symbol>
+
+    <!-- Home -->
+    <symbol id="home" viewBox="0 0 24 24">
+        <path d="M3 12L12 3l9 9v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1v-9z" stroke="currentColor" stroke-width="2" fill="none"/>
+    </symbol>
+
+    <!-- Categories -->
+    <symbol id="categories" viewBox="0 0 24 24">
+        <path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zm-10 10h8v8H3v-8zm10 0h8v8h-8v-8z" stroke="currentColor" stroke-width="2" fill="none"/>
+    </symbol>
+
+    <!-- Notifications -->
+    <symbol id="notification" viewBox="0 0 24 24">
+        <path d="M12 22a2 2 0 002-2H10a2 2 0 002 2zm6-6V9a6 6 0 10-12 0v7l-2 2h16l-2-2z" stroke="currentColor" stroke-width="2" fill="none"/>
+    </symbol>
+
+    <!-- Messages -->
+    <symbol id="message" viewBox="0 0 24 24">
+        <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2v10z" stroke="currentColor" stroke-width="2" fill="none"/>
+    </symbol>
+
+    <!-- Star / Rating -->
+    <symbol id="star" viewBox="0 0 24 24">
+        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" stroke="currentColor" stroke-width="2" fill="none"/>
+    </symbol>
+</svg>

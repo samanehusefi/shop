@@ -97,7 +97,7 @@ const createMobileMenuHTML = (items: DataMenu[]): string =>
                 return `
                 <li class="w-full">
                     <details>
-                        <summary class="px-4 py-2 hover:text-red-600">
+                        <summary class="hover:text-red-600 hover:bg-transparent">
                             ${item.title}
                         </summary>
                         <ul class="pl-4 w-full">
@@ -109,7 +109,7 @@ const createMobileMenuHTML = (items: DataMenu[]): string =>
             }
             return `
             <li class="w-full">
-                <a href="${item.url}" class="px-4 py-2 hover:text-red-600">
+                <a href="${item.url}" class=" hover:text-red-600 hover:bg-transparent">
                     ${item.title}
                 </a>
             </li>

@@ -1,12 +1,11 @@
+//import { BASE_URL } from '@/config';
 type Product = { id: number; name: string; groupId: number };
 type ProductGroup = { id: number; name: string };
-
 const productGroups: ProductGroup[] = [
     { id: 1, name: "گوشی" },
     { id: 2, name: "لپ‌تاپ" },
     { id: 3, name: "تبلت" },
 ];
-
 const products: Product[] = [
     { id: 1, name: "آیفون 14", groupId: 1 },
     { id: 2, name: "گلکسی S23", groupId: 1 },
@@ -35,7 +34,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const input = document.getElementById("search") as HTMLInputElement;
     const resultsContainer = document.getElementById("results") as HTMLUListElement;
     const searchIcon = document.getElementById("searchIcon");
+    const mobileSearchBtn = document.getElementById("mobileSearchBtn") as HTMLButtonElement | null;
+    const searchBox = document.getElementById("searchBox") as HTMLDivElement | null;
 
+
+    // ===== Mobile Search Toggle =====
+    if (mobileSearchBtn && searchBox) {
+        mobileSearchBtn.addEventListener("click", () => {
+            searchBox.classList.remove("hidden");
+            mobileSearchBtn.classList.add("hidden");
+            input.focus();
+        });
+    }
     if (!input || !resultsContainer || !searchIcon) return;
 
     let debounceTimeout: number | undefined;
