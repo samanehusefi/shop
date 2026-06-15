@@ -3,31 +3,36 @@
     "target": "ES2022",
     "useDefineForClassFields": true,
     "module": "ESNext",
+
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "types": ["vite/client", "node"],
+
+    "types": ["vite/client"],
+
     "skipLibCheck": true,
 
-    /* Bundler mode */
-    "moduleResolution": "node",
+    /* Vite / Bundler */
+    "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
+
+    /* مهم: اجازه emit برای build tools */
     "noEmit": true,
 
-    /* Linting */
+    /* کیفیت کد */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
+
+    /* paths */
     "baseUrl": ".",
     "paths": {
       "@css/*": ["src/css/*"],
       "@/*": ["src/*"]
     }
   },
-  "esModuleInterop": true,
-  "allowSyntheticDefaultImports": true,
+
   "include": ["src"]
 }

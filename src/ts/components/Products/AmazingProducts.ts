@@ -1,6 +1,5 @@
-import { BASE_URL } from '@/config';
+import { BASE_URL, ASSETS } from '@/config';
 import { startAmazingTimer } from '@/ts/components/CountdownTimer/CountdownTimer';
-import waitingImage from '@/assets/icon/waiting.png';
 export interface ProductData {
     productId: number;
     title: string;
@@ -13,6 +12,7 @@ export interface ProductData {
     priority: number;
     discount: number;
     is_amazing: boolean;
+    isfresh: false;
     image: string;
     discount_amount: string;
 }
@@ -103,7 +103,7 @@ const createAmazingProduct = (items: ProductData[]) =>
     <div class="h-[250px] flex flex-col items-center justify-center ">
     <div class="flex w-32 h-32 px-1 py-1">
         <img
-    src="${waitingImage}"
+    src="${ASSETS.waitingImage}"
     class="image-placeholder flex inset-0  w-full h-32 px-2 py-2 object-contain rounded-lg animate-pulse"
     alt="Waiting for image"
 />
@@ -154,58 +154,62 @@ type SwiperElement = HTMLElement & {
         update: () => void;
     };
 };
+/* ---------------- initProductImages ---------------- */
+export const initProductImages = (container: Element) => {
+    const images =
+        container.querySelectorAll<HTMLImageElement>('.product-image');
+
+    images.forEach((img) => {
+        const placeholder =
+            img.parentElement?.querySelector('.image-placeholder');
+
+        const showImage = () => {
+            img.classList.remove('opacity-0');
+            placeholder?.remove();
+        };
+
+        const src = img.dataset.src;
+        if (src) img.src = src;
+
+        if (img.complete && img.naturalWidth > 0) {
+            showImage();
+        } else {
+            img.addEventListener('load', showImage, { once: true });
+
+            img.addEventListener(
+                'error',
+                () => {
+                    placeholder?.remove();
+                    img.src = '/images/no-image.webp';
+                    img.classList.remove('opacity-0');
+                },
+                { once: true }
+            );
+        }
+    });
+};
+/* ---------------- loadAmazingProduct ---------------- */
 export const loadAmazingProduct = async (): Promise<void> => {
     const el = document.querySelector<SwiperElement>(
         'swiper-container.amazing-products'
     );
-
     if (!el) return;
 
     el.innerHTML = createAmazingSkeleton();
     el.swiper?.update();
 
     await new Promise(requestAnimationFrame);
-    await new Promise(requestAnimationFrame);
 
     try {
         const data = await fetchProduct();
         startAmazingTimer("2026-07-20T23:59:59");
+
         await new Promise(res => setTimeout(res, 250));
 
         el.innerHTML = createAmazingProduct(data);
 
-        const images =
-            el.querySelectorAll<HTMLImageElement>('.product-image');
+        initProductImages(el);
 
-        images.forEach(img => {
-            const placeholder =
-                img.parentElement?.querySelector('.image-placeholder');
-
-            const showImage = () => {
-                img.classList.remove('opacity-0');
-                placeholder?.remove();
-            };
-
-            if (img.complete && img.naturalWidth > 0) {
-                showImage();
-            } else {
-                img.addEventListener(
-                    'load',
-                    showImage,
-                    { once: true }
-                );
-
-                img.addEventListener(
-                    'error',
-                    () => {
-                        placeholder?.remove();
-                        img.src = '/images/no-image.webp';
-                        img.classList.remove('opacity-0');
-                    },
-                    { once: true }
-                );
-            }
-        });
         el.swiper?.update();
     } catch (e) {
         console.error('Failed to load amazing products:', e);

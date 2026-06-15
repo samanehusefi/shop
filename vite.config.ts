@@ -1,12 +1,20 @@
 import { defineConfig } from "vite";
+import tailwindcss from "@tailwindcss/vite";
 import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export default defineConfig({
-        base: "/shop-ts/",
+    plugins: [tailwindcss()],
+
+    base: "./",
+
     resolve: {
         alias: {
-            "@": path.resolve(process.cwd(), "src"),
-            "@css": path.resolve(process.cwd(), "src/css")
+            "@": path.resolve(__dirname, "src"),
+            "@css": path.resolve(__dirname, "src/css")
         }
     }
 });

@@ -2,7 +2,13 @@
   "header": {
     "company": {
       "name": "فروشگاه من",
-      "logo": "/assets/logo/Logo.png",
+      "logo": {
+        "desktop":  "src/assets/logo/full-horizontal.svg",
+        "mobile": "src/assets/logo/full-horizontal.svg",
+        "alt": "دیجی کالا",
+        "title": "دیجی کالا"
+      },
+
       "tagline": "بهترین محصولات با کیفیت بالا"
     },
     "heading1": "خرید آنلاین آسان و سریع",

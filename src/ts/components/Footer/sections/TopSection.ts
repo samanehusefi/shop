@@ -13,7 +13,7 @@ export default function TopSection() {
                             <span class="block lg:hidden text-neutral-700 ml-2 text-xs">رفتن به بالا</span>
                             <div class="flex">
                                 <svg class="w-4 h-4 lg:text-digikala-gray-300">
-                                    <use xlink:href="./src/assets/icons/icons.svg#chevron-up"></use>
+                                    <use xlink:href="./src/assets/icon/icons.svg#chevron-up"></use>
                                 </svg>
                             </div>
                         </button>

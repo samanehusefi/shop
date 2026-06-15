@@ -1,55 +1,35 @@
-export default function BrandsSection() {
+import { BASE_URL } from '@/config';
+export interface  brandsData  { id: number; title: string; src: string; priority: number; alt: string,url:string };
+// ---------------- Sort Brands ----------------
+const sortByPriority = (items: brandsData[]): brandsData[] =>
+    items
+        .sort((a, b) => a.priority - b.priority)
+        .map(item => ({
+            ...item
+        }));
+
+const fetchBrand = async (): Promise<brandsData[]> => {
+    const res = await fetch(`${BASE_URL}/data/Footer/brands.json`);
+    if (!res.ok) throw new Error('Failed to fetch brands.json');
+    const data = await res.json();
+    return sortByPriority(data.brands || []);
+};
+
+
+
+export  default async function BrandsSection():Promise<string>  {
+    const [brand] = await Promise.all([fetchBrand()]);
+    const renderBrand   = brand.map(b =>`
+        <a class="footer-brands-img" target="_blank" href="${b.url}">
+                <img src="${b.src}" alt="${b.alt}" title="${b.title}">
+            </a>
+        `
+        ).join('');
+
     return `
     <div class="footer-brands-box">
         <div class="footer-brands-container">
-            <a class="footer-brands-img" target="_blank" href="#">
-                <img src="./src/assets/brands/magsvg.svg" alt="مجله اینترنتی دیجی کالا مگ" title="">
-            </a>
-            <a class="footer-brands-img" target="_blank" href="#">
-                <img src="./src/assets/brands/digipay.svg" alt="مجله اینترنتی دیجی کالا مگ" title="">
-            </a>
-            <a class="footer-brands-img" target="_blank" href="#">
-                <img src="./src/assets/brands/digistyle.svg" alt="مجله اینترنتی دیجی کالا مگ" title="">
-            </a>
-            <a class="footer-brands-img" target="_blank" href="#">
-                <img src="./src/assets/brands/digiplus.svg" alt="مجله اینترنتی دیجی کالا مگ" title="">
-            </a>
-            <a class="footer-brands-img" target="_blank" href="#">
-                <img src="./src/assets/brands/digiclub.svg" alt="مجله اینترنتی دیجی کالا مگ" title="">
-            </a>
-            <a class="footer-brands-img" target="_blank" href="#">
-                <img src="./src/assets/brands/jet.svg" alt="مجله اینترنتی دیجی کالا مگ" title="">
-            </a>
-            <a class="footer-brands-img" target="_blank" href="#">
-                <img src="./src/assets/brands/digiMehr.svg" alt="مجله اینترنتی دیجی کالا مگ" title="">
-            </a>
-            <a class="footer-brands-img" target="_blank" href="#">
-                <img src="./src/assets/brands/diginext.svg" alt="مجله اینترنتی دیجی کالا مگ" title="">
-            </a>
-            <a class="footer-brands-img" target="_blank" href="#">
-                <img src="./src/assets/brands/digiexpress.svg" alt="مجله اینترنتی دیجی کالا مگ" title="">
-            </a>
-            <a class="footer-brands-img" target="_blank" href="#">
-                <img src="./src/assets/brands/ganjeh.svg" alt="مجله اینترنتی دیجی کالا مگ" title="">
-            </a>
-            <a class="footer-brands-img" target="_blank" href="#">
-                <img src="./src/assets/brands/digify.svg" alt="مجله اینترنتی دیجی کالا مگ" title="">
-            </a>
-            <a class="footer-brands-img" target="_blank" href="#">
-                <img src="./src/assets/brands/smartech.svg" alt="مجله اینترنتی دیجی کالا مگ" title="">
-            </a>
-            <a class="footer-brands-img" target="_blank" href="#">
-                <img src="./src/assets/brands/digikala-business.svg" alt="مجله اینترنتی دیجی کالا مگ" title="">
-            </a>
-            <a class="footer-brands-img" target="_blank" href="#">
-                <img src="./src/assets/brands/digiservice.svg" alt="مجله اینترنتی دیجی کالا مگ" title="">
-            </a>
-            <a class="footer-brands-img" target="_blank" href="#">
-                <img src="./src/assets/brands/miare.svg" alt="مجله اینترنتی دیجی کالا مگ" title="">
-            </a>
-            <a class="footer-brands-img" target="_blank" href="#">
-                <img src="./src/assets/brands/digividomart.svg" alt="مجله اینترنتی دیجی کالا مگ" title="">
-            </a>
+         ${renderBrand}
         </div>
     </div>
     `;

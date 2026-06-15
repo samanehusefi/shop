@@ -1,7 +1,7 @@
 
 export default function  FooterMenuSection(){
     return `
-        <div class="fixed bottom-0 left-0 right-0 lg:hidden bg-white border-t z-[999]">
+        <div class="fixed bottom-0 left-0 right-0 lg:hidden bg-white border-t border-gray-200 z-[9]">
                 <div class="block lg:hidden footer-contact-Quick px-5 py-3">
                     <div class="footer-Quick-app ">
                         <div class="footer-Quick-app-img">
@@ -17,13 +17,6 @@ export default function  FooterMenuSection(){
                         <button data-open="sheet">دانلود</button>
                     </div>
                 </div>
-                <div class="block lg:hidden footer-contact-Quick px-5 h-16">
-                    <div class="container flex gap-2 items-center justify-between px-5">
-                        <span>خانه</span>
-                        <span>دسته بندی</span>
-                        <span>مگنت</span>
-                        <span>دیجی کالای من</span>
-                    </div>
-                </div>
+            
             </div>`;
 };
