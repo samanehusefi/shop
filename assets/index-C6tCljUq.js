@@ -572,7 +572,7 @@
         </div>
     `}async function Ya(){const e=await Xa(),s=await Da(),t=await wa(),i=await Pa(),a=await Fa(),n=await Ta();return`
     <div class="footer">
-        <div class="container-4xl-w mx-auto">
+        <div class="container-7xl-w mx-auto">
             <div class="px-5">
                 ${Ma()}
                 ${n}
@@ -586,7 +586,7 @@
         </div>
         ${t}
     </div>
-    `}class Na{element;eventsInitialized=!1;constructor(){this.element=document.createElement("div")}async mount(s){const t=await Ya();this.element.innerHTML=t,s.contains(this.element)||s.appendChild(this.element),this.initEvents()}initEvents(){if(this.eventsInitialized)return;const s=this.element.querySelector(".footer-Quick-Link");s&&Oa(s),this.eventsInitialized=!0}}const Va={loop:!0,centeredSlides:!0,spaceBetween:30,observer:!0,observeParents:!0,autoplay:{delay:2500,disableOnInteraction:!1},pagination:{clickable:!0}};let jt=[],St,xt=!1;const Wa=async()=>{const e=await fetch(`${X}/data/SliderData/slider.json`);if(!e.ok)throw new Error("Failed to fetch slider.json");return(await e.json()||[]).sort((t,i)=>t.priority-i.priority)},Ua=(e,s)=>`<img class="w-full h-full object-cover" src="${window.innerWidth>=1024?e.desktop:e.mobile}" alt="${s}" />`,Qa=e=>e.filter(s=>s.active).map(s=>`
+    `}class Na{element;eventsInitialized=!1;constructor(){this.element=document.createElement("div"),this.element.classList.add("w-full")}async mount(s){const t=await Ya();this.element.innerHTML=t,s.contains(this.element)||s.appendChild(this.element),this.initEvents()}initEvents(){if(this.eventsInitialized)return;const s=this.element.querySelector(".footer-Quick-Link");s&&Oa(s),this.eventsInitialized=!0}}const Va={loop:!0,centeredSlides:!0,spaceBetween:30,observer:!0,observeParents:!0,autoplay:{delay:2500,disableOnInteraction:!1},pagination:{clickable:!0}};let jt=[],St,xt=!1;const Wa=async()=>{const e=await fetch(`${X}/data/SliderData/slider.json`);if(!e.ok)throw new Error("Failed to fetch slider.json");return(await e.json()||[]).sort((t,i)=>t.priority-i.priority)},Ua=(e,s)=>`<img class="w-full h-full object-cover" src="${window.innerWidth>=1024?e.desktop:e.mobile}" alt="${s}" />`,Qa=e=>e.filter(s=>s.active).map(s=>`
             <swiper-slide class="relative w-full h-full">
                 <div class="h-full w-full overflow-hidden">
                     ${Ua(s.images,s.alt)}
