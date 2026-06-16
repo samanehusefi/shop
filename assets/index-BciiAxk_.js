@@ -24,7 +24,7 @@
       ${_i(this.passedParams)?`
         <div part="scrollbar" class="swiper-scrollbar"></div>
       `:""}
-    `),this.shadowRoot.appendChild(t),this.rendered=!0}initialize(){if(this.swiper&&this.swiper.initialized)return;const{params:s,passedParams:t}=bt(this);this.swiperParams=s,this.passedParams=t,delete this.swiperParams.init,this.render(),this.swiper=new Z(this.shadowRoot.querySelector(".swiper"),{...s.virtual?{}:{observer:!0},...s,touchEventsTarget:"container",onAny:(i,...a)=>{i==="observerUpdate"&&this.calcSlideSlots();const n=s.eventsPrefix?`${s.eventsPrefix}${i.toLowerCase()}`:i.toLowerCase(),d=new CustomEvent(n,{detail:a,bubbles:i!=="hashChange",cancelable:!0});this.dispatchEvent(d)}})}connectedCallback(){this.swiper&&this.swiper.initialized&&this.nested&&this.closest("swiper-slide")&&this.closest("swiper-slide").swiperLoopMoveDOM||this.init===!1||this.getAttribute("init")==="false"||this.initialize()}disconnectedCallback(){this.nested&&this.closest("swiper-slide")&&this.closest("swiper-slide").swiperLoopMoveDOM||this.swiper&&this.swiper.destroy&&this.swiper.destroy()}updateSwiperOnPropChange(s,t){const{params:i,passedParams:a}=bt(this,s,t);this.passedParams=a,this.swiperParams=i,!(this.swiper&&this.swiper.params[s]===t)&&ji({swiper:this.swiper,passedParams:this.passedParams,changedParams:[Ie(s)],...s==="navigation"&&a[s]?{prevEl:".swiper-button-prev",nextEl:".swiper-button-next"}:{},...s==="pagination"&&a[s]?{paginationEl:".swiper-pagination"}:{},...s==="scrollbar"&&a[s]?{scrollbarEl:".swiper-scrollbar"}:{}})}attributeChangedCallback(s,t,i){this.swiper&&this.swiper.initialized&&(t==="true"&&i===null&&(i=!1),this.updateSwiperOnPropChange(s,i))}static get observedAttributes(){return je.filter(t=>t.includes("_")).map(t=>t.replace(/[A-Z]/g,i=>`-${i}`).replace("_","").toLowerCase())}}je.forEach(e=>{e!=="init"&&(e=e.replace("_",""),Object.defineProperty(At.prototype,e,{configurable:!0,get(){return(this.passedParams||{})[e]},set(s){this.passedParams||(this.passedParams={}),this.passedParams[e]=s,this.swiper&&this.swiper.initialized&&this.updateSwiperOnPropChange(e,s)}}))});class Ri extends $t{constructor(){super(),this.attachShadow({mode:"open"})}render(){const s=this.lazy||this.getAttribute("lazy")===""||this.getAttribute("lazy")==="true";if(It(this.shadowRoot,Fi),this.shadowRoot.appendChild(document.createElement("slot")),s){const t=document.createElement("div");t.classList.add("swiper-lazy-preloader"),t.part.add("preloader"),this.shadowRoot.appendChild(t)}}initialize(){this.render()}connectedCallback(){this.swiperLoopMoveDOM||this.initialize()}}const qi=()=>{typeof window>"u"||(window.customElements.get("swiper-container")||window.customElements.define("swiper-container",At),window.customElements.get("swiper-slide")||window.customElements.define("swiper-slide",Ri))};typeof window<"u"&&(window.SwiperElementRegisterParams=e=>{je.push(...e)});const Xi=""+new URL("waiting-Btz47yc-.png",import.meta.url).href,X="/shop/",we={waitingImage:Xi},Yi=e=>e.sort((s,t)=>s.priority-t.priority),Ni=async()=>{const e=await fetch(`${X}/data/Header/banner.json`);if(!e.ok)throw new Error("Failed to fetch banner.json");const s=await e.json();return Yi(s.banner||[])},Vi=(e,s)=>`<img class="w-full h-full object-cover" src="${window.innerWidth>=1024?e.desktop:e.mobile}" alt="${s}" />`;async function Wi(){return`
+    `),this.shadowRoot.appendChild(t),this.rendered=!0}initialize(){if(this.swiper&&this.swiper.initialized)return;const{params:s,passedParams:t}=bt(this);this.swiperParams=s,this.passedParams=t,delete this.swiperParams.init,this.render(),this.swiper=new Z(this.shadowRoot.querySelector(".swiper"),{...s.virtual?{}:{observer:!0},...s,touchEventsTarget:"container",onAny:(i,...a)=>{i==="observerUpdate"&&this.calcSlideSlots();const n=s.eventsPrefix?`${s.eventsPrefix}${i.toLowerCase()}`:i.toLowerCase(),d=new CustomEvent(n,{detail:a,bubbles:i!=="hashChange",cancelable:!0});this.dispatchEvent(d)}})}connectedCallback(){this.swiper&&this.swiper.initialized&&this.nested&&this.closest("swiper-slide")&&this.closest("swiper-slide").swiperLoopMoveDOM||this.init===!1||this.getAttribute("init")==="false"||this.initialize()}disconnectedCallback(){this.nested&&this.closest("swiper-slide")&&this.closest("swiper-slide").swiperLoopMoveDOM||this.swiper&&this.swiper.destroy&&this.swiper.destroy()}updateSwiperOnPropChange(s,t){const{params:i,passedParams:a}=bt(this,s,t);this.passedParams=a,this.swiperParams=i,!(this.swiper&&this.swiper.params[s]===t)&&ji({swiper:this.swiper,passedParams:this.passedParams,changedParams:[Ie(s)],...s==="navigation"&&a[s]?{prevEl:".swiper-button-prev",nextEl:".swiper-button-next"}:{},...s==="pagination"&&a[s]?{paginationEl:".swiper-pagination"}:{},...s==="scrollbar"&&a[s]?{scrollbarEl:".swiper-scrollbar"}:{}})}attributeChangedCallback(s,t,i){this.swiper&&this.swiper.initialized&&(t==="true"&&i===null&&(i=!1),this.updateSwiperOnPropChange(s,i))}static get observedAttributes(){return je.filter(t=>t.includes("_")).map(t=>t.replace(/[A-Z]/g,i=>`-${i}`).replace("_","").toLowerCase())}}je.forEach(e=>{e!=="init"&&(e=e.replace("_",""),Object.defineProperty(At.prototype,e,{configurable:!0,get(){return(this.passedParams||{})[e]},set(s){this.passedParams||(this.passedParams={}),this.passedParams[e]=s,this.swiper&&this.swiper.initialized&&this.updateSwiperOnPropChange(e,s)}}))});class Ri extends $t{constructor(){super(),this.attachShadow({mode:"open"})}render(){const s=this.lazy||this.getAttribute("lazy")===""||this.getAttribute("lazy")==="true";if(It(this.shadowRoot,Fi),this.shadowRoot.appendChild(document.createElement("slot")),s){const t=document.createElement("div");t.classList.add("swiper-lazy-preloader"),t.part.add("preloader"),this.shadowRoot.appendChild(t)}}initialize(){this.render()}connectedCallback(){this.swiperLoopMoveDOM||this.initialize()}}const qi=()=>{typeof window>"u"||(window.customElements.get("swiper-container")||window.customElements.define("swiper-container",At),window.customElements.get("swiper-slide")||window.customElements.define("swiper-slide",Ri))};typeof window<"u"&&(window.SwiperElementRegisterParams=e=>{je.push(...e)});const Xi="/assets/waiting-Btz47yc-.png",X="./",we={waitingImage:Xi},Yi=e=>e.sort((s,t)=>s.priority-t.priority),Ni=async()=>{const e=await fetch(`${X}/data/Header/banner.json`);if(!e.ok)throw new Error("Failed to fetch banner.json");const s=await e.json();return Yi(s.banner||[])},Vi=(e,s)=>`<img class="w-full h-full object-cover" src="${window.innerWidth>=1024?e.desktop:e.mobile}" alt="${s}" />`;async function Wi(){return`
        ${(await Ni()).filter(t=>t.active).map(t=>`
    <div id="topBanner"
      class="top-nav bg-gray-200 z-40 relative transition-all duration-300 overflow-hidden">
@@ -67,12 +67,12 @@
 
     <button class="relative p-2 hover:bg-gray-100 rounded-full">
         <img class="header-icon"
-             src="./src/assets/icon/user.svg">
+             src="./assets/icon/user.svg">
     </button>
 
     <button class="relative p-2 hover:bg-gray-100 rounded-full">
         <img class="header-icon"
-             src="./src/assets/icon/basket.svg">
+             src="./assets/icon/basket.svg">
     </button>
 
 </div>
@@ -98,14 +98,14 @@
 
     <button class="relative p-1 hover:bg-gray-100 rounded-full">
         <img class="header-icon"
-             src="./src/assets/icon/user.svg"
+             src="./assets/icon/user.svg"
              alt="digikala - دیجی کالا"
              title="digikala - دیجی کالا">
     </button>
 
     <button class="relative p-2 hover:bg-gray-100 rounded-full">
         <img class="header-icon"
-             src="./src/assets/icon/basket.svg"
+             src="./assets/icon/basket.svg"
              alt="digikala - دیجی کالا"
              title="digikala - دیجی کالا">
     </button>
@@ -135,7 +135,7 @@
 
             <!-- Logo -->
             <div class="flex-1 flex justify-center">
-                         <img class="h-10 w-32" src="./src/assets/logo/full-horizontal.svg" alt="دیجی کالا" />
+                         <img class="h-10 w-32" src="./assets/logo/full-horizontal.svg" alt="دیجی کالا" />
 
             </div>
 
@@ -163,7 +163,7 @@
 
         <!-- Header -->
         <div class="p-4 border-b flex justify-between items-center">
-          <img class="w-24 lg:block lg:w-48" src="./src/assets/logo/full-horizontal.svg" alt="دیجی کالا" />
+          <img class="w-24 lg:block lg:w-48" src="./assets/logo/full-horizontal.svg" alt="دیجی کالا" />
 
             <button
                 id="mobileMenuCloseBtn"
@@ -329,7 +329,7 @@
             ${da(s,s.alt)}
         </div>
     `};function ua(e){const s=document.getElementById(e);if(!s)return;let t;const i=()=>ca(s);i(),window.addEventListener("resize",()=>{clearTimeout(t),t=window.setTimeout(()=>{i()},150)})}const fa=async()=>{const e=await fetch(`${X}/data/ProductData/products.json`);if(!e.ok)throw new Error("Failed products.json");const s=await e.json();return Array.isArray(s)?s:s??[]},pa=async()=>{const e=await fetch(`${X}/data/ProductData/produc_group.json`);if(!e.ok)throw new Error("Failed produc_group.json");const s=await e.json();return s.categories??s.categories??[]},ze=(e="")=>e.replace(/\s+/g,"").toLowerCase(),ma=(e="",s)=>{const t=s.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),i=new RegExp(`(${t})`,"gi");return e.replace(i,"<mark>$1</mark>")},yt=(e,s,t)=>{const i=ze(s);return e.filter(a=>{const n=ze(a.title??""),d=ze(a.category??""),c=ze(a.category_fa??"");return n.includes(i)||d.includes(i)||c.includes(i)}).map(a=>({type:t,item:a}))};function ha(e,s,t,i){if(t.innerHTML="",!e.length){t.classList.remove("hidden");const c=document.createElement("li");c.className="p-6 flex flex-col items-center justify-center text-center gap-2 md:p-0",c.innerHTML=`
-            <img src="./src/assets/icon/SearchNotFound.svg"
+            <img src="./assets/icon/SearchNotFound.svg"
                  class="w-60 h-60 opacity-70 md:p-0 md:mt-[-10%]"
                  alt="not found" />
 
@@ -367,7 +367,7 @@
             <div class="block lg:hidden footer-contact-Quick">
                 <div class="footer-Quick-contact">
                     <div class="footer-Quick-contact-img">
-                        <img src="./src/assets/icon/support.svg" alt="support">
+                        <img src="./assets/icon/support.svg" alt="support">
                     </div>
                     <div class="flex flex-col mr-2">
                         <span class="block font-bold">تماس با پشتیبانی</span>
@@ -383,7 +383,7 @@
             <div class="block lg:hidden footer-contact-Quick">
                 <div class="footer-Quick-app">
                     <div class="footer-Quick-app-img">
-                        <img src="./src/assets/logo/logo.png" alt="digikala">
+                        <img src="./assets/logo/logo.png" alt="digikala">
                     </div>
                     <div class="flex flex-col mr-2">
                         <span class="block font-bold">اپلیکیشن دیجی‌کالا</span>
@@ -404,7 +404,7 @@
                     <div class="flex justify-between">
                         <h2 class="text-lg font-semibold mb-2">دانلود اپلیکیشن دیجی کالا</h2>
                         <div data-close class="cursor-pointer">
-                            <img class="w-8" src="./src/assets/icon/close.svg" alt="close">
+                            <img class="w-8" src="./assets/icon/close.svg" alt="close">
                         </div>
                     </div>
                     <div class="w-full border-b bg-gray-300 rounded mx-auto mb-4"></div>
@@ -420,7 +420,7 @@
            <div class="footer_first_section">
                 <div class="footer_logo">
                     <img class="footer_logo"
-                         src="./src/assets/logo/full-horizontal.svg" alt="digikala - دیجی کالا"
+                         src="./assets/logo/full-horizontal.svg" alt="digikala - دیجی کالا"
                          title="digikala - دیجی کالا">
                 </div>
                 <div class="flex justify-center">
@@ -430,7 +430,7 @@
                             <span class="block lg:hidden text-neutral-700 ml-2 text-xs">رفتن به بالا</span>
                             <div class="flex">
                                 <svg class="w-4 h-4 lg:text-digikala-gray-300">
-                                    <use xlink:href="./src/assets/icon/icons.svg#chevron-up"></use>
+                                    <use xlink:href="./assets/icon/icons.svg#chevron-up"></use>
                                 </svg>
                             </div>
                         </button>
@@ -443,7 +443,7 @@
             <details class="footer-Quick-details group lg:hidden">
                 <summary class="footer-Quick-summery">
                     <h3 class="footer-Quick-Link-heading">${e.title}</h3>
-                    <img class="footer-Queick-svg" src="./src/assets/icon/chevron.svg" alt="chevron">
+                    <img class="footer-Queick-svg" src="./assets/icon/chevron.svg" alt="chevron">
                 </summary>
                 <div class="footer-Queick-Link-Box">${wt(t)}</div>
             </details>
@@ -467,7 +467,7 @@
                     <details class="footer-Quick-details group">
                         <summary class="footer-Quick-summery">
                             <h3 class="footer-Quick-Link-heading">شرکای تجاری</h3>
-                            <img class="footer-Queick-svg" src="./src/assets/icon/chevron-down.svg" alt="chevron">
+                            <img class="footer-Queick-svg" src="./assets/icon/chevron-down.svg" alt="chevron">
                         </summary>
 
                         <div class="footer-brands-box-mobile">
@@ -500,7 +500,7 @@
                 <div class="block lg:hidden footer-contact-Quick px-5 py-3">
                     <div class="footer-Quick-app ">
                         <div class="footer-Quick-app-img">
-                            <img src="./src/assets/logo/logo.png" alt="digikala">
+                            <img src="./assets/logo/logo.png" alt="digikala">
                         </div>
 
                         <div class="flex flex-col mr-2">
@@ -517,7 +517,7 @@
     <div class="footer-app-download">
                 <div class="footer-app-r-text">
                     <div class="footer-app-r-img">
-                        <img src="./src/assets/application/footerlogo2.webp" alt="دیجی‌کالا">
+                        <img src="./assets/application/footerlogo2.webp" alt="دیجی‌کالا">
                     </div>
                     <div class="footer-app-r-text">
                         <p>دانلود اپلیکیشن دیجی‌کالا</p>
@@ -533,7 +533,7 @@
                     </div>
                     <div class="footer-link-more">
                         <a href="#">
-                            <img src="./src/assets/application/More.svg" alt="More">
+                            <img src="./assets/application/More.svg" alt="More">
                         </a>
                     </div>
                 </div>
@@ -560,7 +560,7 @@
                 <button  type="button" id="toggleBtn" class="footer-show-more">
                     <span id="toggleText">مشاهده بیشتر</span>
                     <div id="toggleIcon" class="footer-show-more-icon">
-                        <img src="./src/assets/icon/chevron-left.svg" alt="chevron-left">
+                        <img src="./assets/icon/chevron-left.svg" alt="chevron-left">
                     </div>
                 </button >
 

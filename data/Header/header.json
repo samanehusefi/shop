@@ -3,8 +3,8 @@
     "company": {
       "name": "فروشگاه من",
       "logo": {
-        "desktop":  "src/assets/logo/full-horizontal.svg",
-        "mobile": "src/assets/logo/full-horizontal.svg",
+        "desktop":  "./assets/logo/full-horizontal.svg",
+        "mobile": "./assets/logo/full-horizontal.svg",
         "alt": "دیجی کالا",
         "title": "دیجی کالا"
       },
