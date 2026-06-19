@@ -1,3 +1,4 @@
+
 let resizeTimeout: ReturnType<typeof setTimeout> | undefined;
 
 function getLoadingEl(): HTMLElement | null {
@@ -61,6 +62,12 @@ interface CampaignBannersModule {
 interface PromoBannersModule {
     loadPromoBanners: () => Promise<void>;
 }
+interface CategoriesModule {
+    loadCategories: () => Promise<void>;
+}
+interface BrandsModule {
+    loadBrands: () => Promise<void>;
+}
 
 type UpdateTextFn = () => void;
 
@@ -72,7 +79,9 @@ export const loadAppWithLoading = async (
     heroBanners: HeroBannersModule,
     campaignBanners: CampaignBannersModule,
     promoBanners: PromoBannersModule,
-    freshPro: FreshProModule
+    freshPro: FreshProModule,
+    categories: CategoriesModule,
+    brands: BrandsModule
 ): Promise<void> => {
     showLoading();
     await new Promise(requestAnimationFrame);
@@ -84,6 +93,8 @@ export const loadAppWithLoading = async (
             heroBanners.loadHeroBanners(),
             campaignBanners.loadCampaignBanners(),
             promoBanners.loadPromoBanners(),
+            categories.loadCategories(),
+            brands.loadBrands(),
             posts.loadPosts(),
         ]);
         updateText();

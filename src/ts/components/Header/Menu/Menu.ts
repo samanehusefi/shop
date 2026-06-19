@@ -172,44 +172,46 @@ export const initMobileDrawer = () => {
 
 // ---------------- Navbar Scroll ----------------
 export const initNavbarScroll = () => {
+    const navbar = document.querySelector<HTMLElement>('.navbar');
 
-    const navbar = document.querySelector<HTMLElement>('#navbar');
-    const topBanner = document.querySelector<HTMLElement>('#topBanner');
-    const navbarTop = document.querySelector<HTMLElement>('#navbarTop');
-    const spacer = document.querySelector<HTMLElement>('#navbarSpacer');
-
-    if (!navbar || !spacer) return;
+    if (!navbar) {
+        console.warn('navbar not found');
+        return;
+    }
 
     const SCROLL_LIMIT = 80;
+    let isFixed = false;
+    let ticking = false;
 
     const update = () => {
+        if (ticking) return;
+        ticking = true;
 
-        const height = navbar.offsetHeight + 120;
+        requestAnimationFrame(() => {
+            const scrollY = window.scrollY || document.documentElement.scrollTop;
+            const shouldFix = scrollY > SCROLL_LIMIT;
 
-        if (window.scrollY > SCROLL_LIMIT) {
+            if (shouldFix !== isFixed) {
+                isFixed = shouldFix;
 
-            spacer.style.height = `${height}px`;
+                console.log('FIX STATE:', isFixed);
 
-            navbar.classList.add('fixed', 'top-0', 'left-0', 'w-full', 'navbar-scrolled');
+                navbar.classList.toggle('is-fixed', isFixed);
 
-            topBanner?.classList.add('section-collapse');
-            navbarTop?.classList.add('section-collapse');
+                document.documentElement.style.setProperty(
+                    '--navbar-height',
+                    isFixed ? `${navbar.offsetHeight}px` : '0px'
+                );
+            }
 
-        } else {
-
-            spacer.style.height = '0px';
-
-            navbar.classList.remove('fixed', 'top-0', 'left-0', 'w-full', 'navbar-scrolled');
-
-            topBanner?.classList.remove('section-collapse');
-            navbarTop?.classList.remove('section-collapse');
-        }
+            ticking = false;
+        });
     };
-
-    update();
 
     window.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update);
+
+    update();
 };
 
 // ---------------- Load Menus ----------------

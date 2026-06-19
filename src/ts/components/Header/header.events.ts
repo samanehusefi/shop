@@ -24,6 +24,7 @@ export const initHeaderEvents = (container: HTMLElement) => {
         spacers.push({ el: desktopSpacer, target: desktopMenu });
     }
 
+    // ---------------- Drawer ----------------
     const close = () => {
         mobileDrawer?.classList.add("translate-x-full");
         overlay?.classList.add("opacity-0", "pointer-events-none");
@@ -40,46 +41,42 @@ export const initHeaderEvents = (container: HTMLElement) => {
 
     if (targets.length === 0) return;
 
-    const offsetTop = Math.min(...targets.map(t => t.offsetTop));
+    // ---------------- FIX: no offsetTop ----------------
+    const SCROLL_LIMIT = 80;
 
     let isFixed = false;
+    let ticking = false;
 
-    const setFixed = (el: HTMLElement) => {
-        if (el.classList.contains("fixed")) return;
-
-        el.classList.add("fixed", "top-0", "left-0", "right-0", "z-50");
-        el.classList.remove("py-5", "py-7");
-        el.classList.add("py-3");
-    };
-
-    const unsetFixed = (el: HTMLElement) => {
-        if (!el.classList.contains("fixed")) return;
-
-        el.classList.remove("fixed", "top-0", "left-0", "right-0", "z-50");
-        el.classList.remove("py-6", "py-7");
-        el.classList.add("py-2");
-    };
-
-    const syncSpacers = (active: boolean) => {
-        spacers.forEach(({ el, target }) => {
-            el.style.height = active ? `${target.offsetHeight}px` : "0px";
-        });
-    };
-
-    const onScroll = (): void => {
-        const shouldFix = window.scrollY > offsetTop;
-
-        if (shouldFix === isFixed) return;
-
-        isFixed = shouldFix;
-
+    // ---------------- FIX STATE ONLY ----------------
+    const applyState = (fixed: boolean) => {
         targets.forEach(el => {
-            if (shouldFix) setFixed(el);
-            else unsetFixed(el);
+            el.classList.toggle("is-fixed", fixed);
         });
 
-        syncSpacers(shouldFix);
+        spacers.forEach(({ el, target }) => {
+            el.style.height = fixed ? `${target.getBoundingClientRect().height}px` : "0px";
+        });
+    };
+
+    const onScroll = () => {
+        if (ticking) return;
+        ticking = true;
+
+        requestAnimationFrame(() => {
+            const shouldFix = window.scrollY > SCROLL_LIMIT;
+
+            if (shouldFix !== isFixed) {
+                isFixed = shouldFix;
+                applyState(isFixed);
+            }
+
+            ticking = false;
+        });
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", () => applyState(isFixed), { passive: true });
+
+    // initial state
+    applyState(false);
 };

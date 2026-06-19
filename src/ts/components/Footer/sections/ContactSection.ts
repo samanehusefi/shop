@@ -105,7 +105,7 @@ export default async function ContactSection() {
             <div class="block lg:hidden footer-contact-Quick">
                 <div class="footer-Quick-app">
                     <div class="footer-Quick-app-img">
-                        <img src="./src/assets/logo/logo.png" alt="digikala">
+                        <img src="./src/assets/logo/Logo.png" alt="digikala">
                     </div>
                     <div class="flex flex-col mr-2">
                         <span class="block font-bold">اپلیکیشن دیجی‌کالا</span>

@@ -3,6 +3,7 @@ import { initHeaderEvents } from "./header.events";
 import menu from "./Menu/Menu";
 import initLogoSection from "./sections/LogoSection";
 import { initSearch } from "./Search/Search";
+import { initNavbarScroll } from "./Menu/Menu";
 export default class Header {
 
     async mount(root: HTMLElement) {
@@ -24,7 +25,7 @@ export default class Header {
         await new Promise(requestAnimationFrame);
         const navbar = root.querySelector("#navbar") as HTMLElement;
         initSearch(navbar);
-
+        initNavbarScroll();
         // 6. init events (LAST STEP)
         initHeaderEvents(root);
     }

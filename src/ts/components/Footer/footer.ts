@@ -7,6 +7,8 @@ export default class Footer {
 
     constructor() {
         this.element = document.createElement("div");
+        this.element.classList.add("w-full");
+
     }
 
     async mount(container: HTMLElement) {

@@ -5,7 +5,7 @@ export default function  FooterMenuSection(){
                 <div class="block lg:hidden footer-contact-Quick px-5 py-3">
                     <div class="footer-Quick-app ">
                         <div class="footer-Quick-app-img">
-                            <img src="./src/assets/logo/logo.png" alt="digikala">
+                            <img src="./src/assets/logo/Logo.png" alt="digikala">
                         </div>
 
                         <div class="flex flex-col mr-2">

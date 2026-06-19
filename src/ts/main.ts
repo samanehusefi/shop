@@ -11,9 +11,11 @@ import slider from "@/ts/components/Slider/Slider";
 import amazingpro from "@/ts/components/Products/AmazingProducts";
 import freshpro from "@/ts/components/Products/FreshProducts";
 import posts from "@/ts/components/Posts/PostCard";
-import heroBanners from "@/ts/components/Banners/HeroBanners.ts";
-import campaign_banners from "@/ts/components/Banners/CampaignBanners.ts";
-import promo_banners from "@/ts/components/Banners/PromoBanners.ts";
+import heroBanners from "@/ts/components/Banners/HeroBanners";
+import campaign_banners from "@/ts/components/Banners/CampaignBanners";
+import promo_banners from "@/ts/components/Banners/PromoBanners";
+import categories from "@/ts/components/Products/Categories";
+import brands from "@/ts/components/Brands/Brands";
 import { loadAppWithLoading } from "@/ts/components/Loading/Loading";
 
 import "@/ts/components/Header/Search/Search";
@@ -23,7 +25,7 @@ register();
 /* ---------------- bootstrap ---------------- */
 window.addEventListener("DOMContentLoaded", async () => {
     await mountHeader();
-    await loadAppWithLoading(slider, amazingpro, updateText, posts,heroBanners,campaign_banners,promo_banners,freshpro);
+    await loadAppWithLoading(slider, amazingpro, updateText, posts,heroBanners,campaign_banners,promo_banners,freshpro,categories,brands);
     await mountFooter();
     initSheets();
 });
@@ -32,7 +34,6 @@ window.addEventListener("DOMContentLoaded", async () => {
 async function mountHeader() {
     const headerRoot = document.querySelector<HTMLElement>("#header");
     if (!headerRoot) return;
-
     await new Header().mount(headerRoot);
 }
 

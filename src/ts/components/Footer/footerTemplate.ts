@@ -17,7 +17,7 @@ export  async function footerTemplate(): Promise<string> {
     const Contact=await ContactSection();
     return `
     <div class="footer">
-        <div class="container-4xl-w mx-auto">
+        <div class="container-7xl-w mx-auto">
             <div class="px-5">
                 ${TopSection()}
                 ${Contact}

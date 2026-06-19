@@ -37,9 +37,28 @@
         @apply min-h-screen flex flex-col;
     }
 }
+:root {
+    --navbar-height: 0px;
+}
 html, body {
     @apply relative h-full;
 }
+body {
+    padding-top: var(--navbar-height);
+}
+body { overflow: auto; }
+.main { overflow: scroll; height: 100vh; }
+.navbar.is-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: white;
+    will-change: transform;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 ul, li {
     @apply list-none border-0;
 }
@@ -90,6 +109,7 @@ ul, li {
 #mobileMenuList .dropdown-content {
     @apply translate-x-full transition-transform duration-300 ease-in-out;
 }
+
 /*.menu-mobile li:not(:last-child)*/
 /*{ @apply mb-4 rounded-xl bg-gray-100 px-2 py-1}*/
 .menu {
@@ -147,7 +167,7 @@ swiper-container {
     @apply w-full h-full;
 }
 swiper-slide {
-    @apply flex justify-center items-center text-center text-[18px] bg-gray-800;
+    @apply flex justify-center items-center text-center text-[18px] ;
 }
 swiper-slide .title {
     @apply text-[14px] md:text-[20px] font-light text-center border-b border-white;
@@ -503,3 +523,56 @@ swiper-container::part(button-next):hover, swiper-container::part(button-prev):h
 }
 /*#endregion Footer*/
 
+.swiper-button-next,
+.swiper-button-prev {
+    @apply absolute top-1/2 -translate-y-1/2 z-10;
+}
+
+.categories-swiper {
+    @apply w-full block bg-transparent overflow-hidden;
+}
+
+.categories-swiper swiper-slide {
+    @apply h-auto block bg-transparent;
+}
+
+.categories-swiper::part(wrapper),
+.categories-swiper::part(container) {
+    background: transparent;
+}
+
+.categories-swiper::part(container) {
+    overflow: visible;
+}
+
+swiper-container {
+    --swiper-theme-color: #FFF;
+}
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary {
+    list-style: none;
+    -webkit-appearance: none;
+}
+
+.swiper-container.brands-swiper {
+    background: transparent !important;
+}
+.brands-swiper {
+    @apply w-full block bg-transparent overflow-hidden;
+}
+
+.brands-swiper-swiper swiper-slide {
+    @apply h-auto block !bg-transparent;
+}
+
+.brands-swiper::part(wrapper),
+.brands-swiper::part(container) {
+    background: transparent;
+}
+
+.brands-swiper::part(container) {
+    overflow: visible;
+}
