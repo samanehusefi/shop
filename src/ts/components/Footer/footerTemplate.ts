@@ -8,31 +8,28 @@ import FooterMenuSection from "./sections/FooterMenuSection.ts";
 import AppDownloadSection from "./sections/AppDownloadSection.ts";
 import AboutSection from "./sections/AboutSection.ts";
 
-export const footerTemplate = `
-<div class="footer">
-    <div class="container-4xl-w mx-auto">
-        <div class="px-5">
-            <!--topFooter -->
-             ${TopSection()}
-            <!--contactFooter -->
-             ${ContactSection()}
-            <!--support-Footer  -->
-             ${SupportSection()}
-            <!--footer-Quick-Link -->
-             ${QuickLinkSection()}
-            <!--application-Download-Link -->
-             ${AppDownloadSection()}
-            <!--footer-Namd And AboutUs -->
-             ${AboutSection()}
-            <!--footer-copy-right -->
-              ${CopyRightSection()}
-             <!--Menu -->
-              ${FooterMenuSection()}
-
+export  async function footerTemplate(): Promise<string> {
+    const AboutUsSection = await AboutSection();
+    const QuickLinks = await QuickLinkSection();
+    const Brands = await BrandsSection();
+    const Support=await SupportSection();
+    const applications=await AppDownloadSection();
+    const Contact=await ContactSection();
+    return `
+    <div class="footer">
+        <div class="container-7xl-w mx-auto">
+            <div class="px-5">
+                ${TopSection()}
+                ${Contact}
+                ${Support}
+                ${QuickLinks}
+                ${applications}
+                ${AboutUsSection}
+                ${CopyRightSection()}
+                ${FooterMenuSection()}
+            </div>
         </div>
+        ${Brands}
     </div>
-    <!--footer-brands-box -->
-     ${BrandsSection()}
-</div>
-
-`;
+    `;
+}

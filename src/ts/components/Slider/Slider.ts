@@ -1,8 +1,10 @@
-import {BASE_URL} from '@/config';
+import { BASE_URL } from '@/config';
+
 export interface ImageData {
     desktop: string;
     mobile: string;
 }
+
 export interface SliderData {
     id: number;
     title: string;
@@ -13,66 +15,12 @@ export interface SliderData {
     images: ImageData;
     active: boolean;
 }
-/* ---------------- sortSlider ---------------- */
-const sortSlider = (items: SliderData[]): SliderData[] =>
-    items.sort((a, b) => a.priority - b.priority);
-/* ---------------- fetchSlider ---------------- */
-const fetchSlider = async (): Promise<SliderData[]> => {
-    const response = await fetch(`${BASE_URL}/data/slider.json`);
-    if (!response.ok) throw new Error('Failed to fetch slider.json');
-    const data = await response.json();
-    return sortSlider(data || []);
-};
-/* ---------------- getSlideImageHTML ---------------- */
-const getSlideImageHTML = (images: ImageData, alt: string): string => {
-    const isDesktop = window.innerWidth >= 1024;
-    const src = isDesktop ? images.desktop : images.mobile;
 
-    return `<img class="w-full h-full object-cover" src="${src}" alt="${alt}" />`;
-};
-/* ---------------- CreateSliderElements ---------------- */
-const CreateSliderElements = (items: SliderData[]): string =>
-
-    items.filter(sl => sl.active)
-        .map(
-            sl => `
-        <swiper-slide class="relative w-full h-full">
-          <div class="h-full w-full">
-         ${getSlideImageHTML(sl.images, sl.alt)}
-          </div>
-          <div class="hidden h-40 lg:block absolute right-4 top-1/4  opacity-80  w-1/3 rounded-2xl p-3 bg-gray-700 text-white">
-            <div class="title" data-swiper-parallax="-300">${sl.title}</div>
-            <div class="text" data-swiper-parallax="-100">${sl.description}</div>
-          </div>
-        </swiper-slide>
-      `
-        )
-        .join('');
-
-/* ---------------- SwiperContainerEl ---------------- */
 type SwiperContainerEl = HTMLElement & {
-    init: boolean;
-    initialize: () => void;
-};
-/* ---------------- Helpers ---------------- */
-const setupSliderMarkup = (
-    slider: SwiperContainerEl,
-    items: Awaited<ReturnType<typeof fetchSlider>>
-) => {
-    slider.init = false;
-    slider.innerHTML = CreateSliderElements(items);
+    swiper?: any;
+    initialize?: () => void;
 };
 
-const applySliderConfig = (slider: SwiperContainerEl) => {
-    Object.assign(slider, sliderConfig);
-};
-
-const initializeSlider = (slider: SwiperContainerEl) => {
-    requestAnimationFrame(() => {
-        slider.initialize();
-    });
-};
-/* ---------------- Config ---------------- */
 const sliderConfig = {
     loop: true,
     centeredSlides: true,
@@ -88,22 +36,95 @@ const sliderConfig = {
     },
 };
 
+/* ---------------- state ---------------- */
+let sliderItems: SliderData[] = [];
+let resizeTimeout: number;
+let resizeBound = false;
+
+/* ---------------- fetch only once ---------------- */
+const fetchSlider = async (): Promise<SliderData[]> => {
+    const response = await fetch(`${BASE_URL}/data/SliderData/slider.json`);
+    if (!response.ok) throw new Error('Failed to fetch slider.json');
+
+    const data = await response.json();
+    return (data || []).sort((a: SliderData, b: SliderData) => a.priority - b.priority);
+};
+
+/* ---------------- image ---------------- */
+const getSlideImageHTML = (images: ImageData, alt: string): string => {
+    const isDesktop = window.innerWidth >= 1024;
+    const src = isDesktop ? images.desktop : images.mobile;
+
+    return `<img class="w-full h-full object-cover" src="${src}" alt="${alt}" />`;
+};
+
+/* ---------------- slides ---------------- */
+const createSlides = (items: SliderData[]) =>
+    items
+        .filter(sl => sl.active)
+        .map(sl => `
+            <swiper-slide class="relative w-full h-full">
+                <div class="h-full w-full overflow-hidden">
+                    ${getSlideImageHTML(sl.images, sl.alt)}
+                </div>
+
+                <div class="hidden lg:block absolute right-4 top-1/4 opacity-80 w-1/3 rounded-2xl p-3 bg-gray-700 text-white">
+                    <div>${sl.title}</div>
+                    <div>${sl.description}</div>
+                </div>
+            </swiper-slide>
+        `)
+        .join('');
+
+/* ---------------- render ---------------- */
+const renderSlider = (slider: SwiperContainerEl) => {
+    slider.innerHTML = createSlides(sliderItems);
+
+    if (slider.swiper) {
+        slider.swiper.destroy(true, true);
+    }
+
+    Object.assign(slider, sliderConfig);
+
+    requestAnimationFrame(() => {
+        slider.initialize?.();
+    });
+};
+
+/* ---------------- reinit only ---------------- */
+const reinitSlider = () => {
+    const slider = document.querySelector<SwiperContainerEl>('.mySwiper');
+    if (!slider) return;
+
+    renderSlider(slider);
+};
+
+/* ---------------- main ---------------- */
 export const loadSlider = async (): Promise<void> => {
     try {
-        const sliderItems = await fetchSlider();
-        const sliderBox = document.querySelector<SwiperContainerEl>('.mySwiper');
-        if (!sliderBox) {
-            console.warn('Swiper container not found');
-            return;
+        sliderItems = await fetchSlider();
+
+        const slider = document.querySelector<SwiperContainerEl>('.mySwiper');
+        if (!slider) return;
+
+        renderSlider(slider);
+
+        // bind resize once
+        if (!resizeBound) {
+            resizeBound = true;
+
+            window.addEventListener("resize", () => {
+                clearTimeout(resizeTimeout);
+
+                resizeTimeout = window.setTimeout(() => {
+                    reinitSlider();
+                }, 200);
+            });
         }
-        setupSliderMarkup(sliderBox, sliderItems);
-        applySliderConfig(sliderBox);
-        initializeSlider(sliderBox);
 
-
-    } catch (error) {
-        console.error(error);
+    } catch (err) {
+        console.error(err);
     }
 };
 
-export default {loadSlider};
+export default { loadSlider };

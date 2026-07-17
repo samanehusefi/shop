@@ -1,37 +1,107 @@
-let resizeTimeout: number | undefined;
+
+let resizeTimeout: ReturnType<typeof setTimeout> | undefined;
+
+function getLoadingEl(): HTMLElement | null {
+    return document.getElementById("loading");
+}
+
 function showLoading() {
-    const loadingDiv = document.getElementById("loading");
-    if (!loadingDiv) return;
-    loadingDiv.classList.remove("hidden");
-    loadingDiv.style.opacity = "1";
+    const el = getLoadingEl();
+    if (!el) return;
+
+    el.classList.remove("hidden");
+    el.style.opacity = "1";
 }
+
 function hideLoading() {
-    const loadingDiv = document.getElementById("loading");
-    if (!loadingDiv) return;
-    loadingDiv.style.opacity = "0";
-    setTimeout(() => {
-        loadingDiv.classList.add("hidden");
-    }, 500);
+    const el = getLoadingEl();
+    if (!el) return;
+
+    el.style.opacity = "0";
+
+    window.setTimeout(() => {
+        el.classList.add("hidden");
+    }, 300);
 }
+
 window.addEventListener("resize", () => {
     showLoading();
+
     if (resizeTimeout) {
         clearTimeout(resizeTimeout);
     }
-    resizeTimeout = window.setTimeout(() => {
+
+    resizeTimeout = setTimeout(() => {
         hideLoading();
-    }, 400);
+    }, 300);
 });
 
-export const loadAppWithLoading = async (menu: any, slider: any) => {
+interface SliderModule {
+    loadSlider: () => Promise<void>;
+}
+
+interface AmazingModule {
+    loadAmazingProduct: () => Promise<void>;
+}
+interface FreshProModule {
+    loadFreshProduct: () => Promise<void>;
+}
+
+interface PostsModule {
+    loadPosts: () => Promise<void>;
+}
+
+interface HeroBannersModule {
+    loadHeroBanners: () => Promise<void>;
+}
+
+interface CampaignBannersModule {
+    loadCampaignBanners: () => Promise<void>;
+}
+
+interface PromoBannersModule {
+    loadPromoBanners: () => Promise<void>;
+}
+interface CategoriesModule {
+    loadCategories: () => Promise<void>;
+}
+interface BrandsModule {
+    loadBrands: () => Promise<void>;
+}
+
+type UpdateTextFn = () => void;
+
+export const loadAppWithLoading = async (
+    slider: SliderModule,
+    amazingpro: AmazingModule,
+    updateText: UpdateTextFn,
+    posts: PostsModule,
+    heroBanners: HeroBannersModule,
+    campaignBanners: CampaignBannersModule,
+    promoBanners: PromoBannersModule,
+    freshPro: FreshProModule,
+    categories: CategoriesModule,
+    brands: BrandsModule
+): Promise<void> => {
     showLoading();
+    await new Promise(requestAnimationFrame);
     try {
-        await menu.loadDesktopMenu();
-        await menu.loadMobileMenu();
-        await slider.loadSlider();
+        await Promise.allSettled([
+            slider.loadSlider(),
+            amazingpro.loadAmazingProduct(),
+            freshPro.loadFreshProduct(),
+            heroBanners.loadHeroBanners(),
+            campaignBanners.loadCampaignBanners(),
+            promoBanners.loadPromoBanners(),
+            categories.loadCategories(),
+            brands.loadBrands(),
+            posts.loadPosts(),
+        ]);
+        updateText();
     } catch (err) {
         console.error("Error loading app:", err);
     } finally {
+        await new Promise(requestAnimationFrame);
         hideLoading();
     }
 };

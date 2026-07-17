@@ -1,5 +1,5 @@
 {
-    "products": [
+    "special_offers": [
       {
         "id": 18861860,
         "title_fa": "مانیتور 27 اینچ سامسونگ مدل Essential Monitor S3 S30GD LS27D300GAMXUE ",
@@ -5437,5 +5437,5 @@
         }
       }
     ],
-    "products_count": 100,
+    "products_count": 100
 }
